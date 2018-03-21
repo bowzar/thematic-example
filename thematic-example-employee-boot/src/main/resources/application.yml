@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: ${project.artifactId}
+
+thematic:
+    datasource:
+        name: hibernate.oracle.cfg.xml
+
+logging:
+    level:
+        root: INFO
+        com.yulintu.thematic.data.ContainerAdvicesTracker: INFO
