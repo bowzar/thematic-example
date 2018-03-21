@@ -5,9 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yulintu</groupId>
-    <artifactId>thematic-example-boot</artifactId>
+    <artifactId>thematic-example-employee-boot</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
 
     <repositories>
         <repository>
@@ -54,11 +55,12 @@
             <artifactId>thematic-web</artifactId>
             <version>${thematic.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.yulintu</groupId>
-            <artifactId>thematic-example</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.yulintu</groupId>-->
+            <!--<artifactId>thematic-example-employee</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework.data</groupId>
@@ -112,6 +114,8 @@
 
 
     <build>
+        <finalName>${project.groupId}.${project.artifactId}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -120,6 +124,17 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
