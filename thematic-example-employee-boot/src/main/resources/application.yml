@@ -1,6 +1,6 @@
 spring:
     application:
-        name: ${project.artifactId}
+        name: thematic-example-employee-boot
 
 thematic:
     datasource:

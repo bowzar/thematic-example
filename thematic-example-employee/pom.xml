@@ -6,7 +6,7 @@
 
     <groupId>com.yulintu</groupId>
     <artifactId>thematic-example-employee</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <repositories>
@@ -15,6 +15,19 @@
             <url>http://192.168.20.10:8081/repository/maven-public/</url>
         </repository>
     </repositories>
+
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://192.168.20.10:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://192.168.20.10:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -107,6 +120,7 @@
     </dependencies>
 
     <build>
+        <!--<finalName>${project.groupId}.${project.artifactId}</finalName>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -116,17 +130,30 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-antrun-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<configuration>-->
+                            <!--<tasks>-->
+                                <!--<copy todir="${project.basedir}/../libs/">-->
+                                    <!--<fileset dir="${project.build.directory}">-->
+                                        <!--<include name="*.jar"/>-->
+                                    <!--</fileset>-->
+                                <!--</copy>-->
+                            <!--</tasks>-->
+                        <!--</configuration>-->
+                        <!--<goals>-->
+                            <!--<goal>run</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
         </plugins>
     </build>
 </project>

@@ -4,7 +4,6 @@ import org.junit.Test;
 
 public class CommonTest {
 
-    @Test
     public void testDescent() {
 
         int n = 4 * 365 * 24 * 6;
@@ -21,7 +20,6 @@ public class CommonTest {
         }
     }
 
-    @Test
     public void testDescent2() {
 
         double baseMin = 1;

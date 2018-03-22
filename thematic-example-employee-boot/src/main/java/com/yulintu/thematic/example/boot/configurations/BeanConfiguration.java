@@ -1,4 +1,4 @@
-package com.yulintu.thematic.example.boot;
+package com.yulintu.thematic.example.boot.configurations;
 
 import com.yulintu.thematic.data.*;
 import com.yulintu.thematic.data.hibernate.HibernateConnectionStringBuilder;
@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@ImportResource(locations = {"classpath:spring.application.xml"})
+@ImportResource("classpath:spring.application.xml")
 public class BeanConfiguration extends SpringConfiguration {
+
+    public BeanConfiguration() {
+    }
 
     @Value("${thematic.datasource.name}")
     private String dsConfigName;
@@ -16,6 +19,7 @@ public class BeanConfiguration extends SpringConfiguration {
     @Bean
     @Scope("prototype")
     public Provider provider() {
+
         HibernateConnectionStringBuilder builder = new HibernateConnectionStringBuilder();
         builder.setConfigureFilePath(dsConfigName);
         return new ProviderHibernateImpl(builder.getConnectionString());
