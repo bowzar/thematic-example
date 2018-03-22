@@ -6,7 +6,7 @@
 
     <groupId>com.yulintu</groupId>
     <artifactId>thematic-example-employee-boot</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.9-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <repositories>
@@ -24,6 +24,8 @@
 
     <properties>
         <thematic.version>1.0.5-RELEASE</thematic.version>
+        <docker.hosted>192.168.20.10:8082</docker.hosted>
+        <docker.remote>http://192.168.20.10:2375</docker.remote>
     </properties>
 
 
@@ -57,7 +59,7 @@
         <dependency>
             <groupId>com.yulintu</groupId>
             <artifactId>thematic-example-employee</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.4-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -136,30 +138,81 @@
                 </executions>
             </plugin>
 
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-assembly-plugin</artifactId>-->
-
-                <!--<configuration>-->
-                    <!--<descriptorRefs>-->
-                        <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
-                    <!--</descriptorRefs>-->
-                    <!--<archive>-->
-                        <!--<manifest>-->
-                            <!--<addClasspath>true</addClasspath>-->
-                            <!--<mainClass>com.yulintu.thematic.example.boot.Application</mainClass>-->
-                        <!--</manifest>-->
-                    <!--</archive>-->
-                <!--</configuration>-->
-                <!--<executions>-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <serverId>docker-hosted</serverId>
+                    <imageName>${docker.hosted}/${project.name}:${project.version}</imageName>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                    <dockerHost>${docker.remote}</dockerHost>
+                    <registryUrl>${docker.hosted}</registryUrl>
+                    <!--<baseImage>java:8</baseImage>-->
+                    <!--<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>-->
+                    <resources>
+                        <resource>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tag-image</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <image>${docker.hosted}/${project.name}:${project.version}</image>
+                            <newName>${docker.hosted}/${project.name}:latest</newName>
+                        </configuration>
+                    </execution>
                     <!--<execution>-->
-                        <!--<id>make-assembly</id>-->
-                        <!--<phase>package</phase>-->
+                        <!--<id>push-image</id>-->
+                        <!--<phase>install</phase>-->
                         <!--<goals>-->
-                            <!--<goal>assembly</goal>-->
+                            <!--<goal>push</goal>-->
                         <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<imageName>${docker.hosted}/${project.name}:${project.version}</imageName>-->
+                        <!--</configuration>-->
                     <!--</execution>-->
-                <!--</executions>-->
+                </executions>
+            </plugin>
+
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-assembly-plugin</artifactId>-->
+
+            <!--<configuration>-->
+            <!--<descriptorRefs>-->
+            <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+            <!--</descriptorRefs>-->
+            <!--<archive>-->
+            <!--<manifest>-->
+            <!--<addClasspath>true</addClasspath>-->
+            <!--<mainClass>com.yulintu.thematic.example.boot.Application</mainClass>-->
+            <!--</manifest>-->
+            <!--</archive>-->
+            <!--</configuration>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<id>make-assembly</id>-->
+            <!--<phase>package</phase>-->
+            <!--<goals>-->
+            <!--<goal>assembly</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
             <!--</plugin>-->
 
 
@@ -174,6 +227,11 @@
             <!--</execution>-->
             <!--</executions>-->
             <!--</plugin>-->
+
+
+
+
         </plugins>
     </build>
+
 </project>

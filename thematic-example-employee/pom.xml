@@ -2,39 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>thematic-example</artifactId>
+        <groupId>com.yulintu</groupId>
+        <version>1.0.3-RELEASE</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yulintu</groupId>
     <artifactId>thematic-example-employee</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
-
-    <repositories>
-        <repository>
-            <id>local-nexus-maven</id>
-            <url>http://192.168.20.10:8081/repository/maven-public/</url>
-        </repository>
-    </repositories>
-
-
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <url>http://192.168.20.10:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>http://192.168.20.10:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.10.RELEASE</version>
-    </parent>
-
 
     <properties>
         <thematic.version>1.0.5-RELEASE</thematic.version>
@@ -71,22 +46,27 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>1.5.10.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>1.5.10.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
+            <version>1.5.10.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.5.10.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.5.10.RELEASE</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -133,25 +113,25 @@
 
 
             <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-antrun-plugin</artifactId>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<configuration>-->
-                            <!--<tasks>-->
-                                <!--<copy todir="${project.basedir}/../libs/">-->
-                                    <!--<fileset dir="${project.build.directory}">-->
-                                        <!--<include name="*.jar"/>-->
-                                    <!--</fileset>-->
-                                <!--</copy>-->
-                            <!--</tasks>-->
-                        <!--</configuration>-->
-                        <!--<goals>-->
-                            <!--<goal>run</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-antrun-plugin</artifactId>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>package</phase>-->
+            <!--<configuration>-->
+            <!--<tasks>-->
+            <!--<copy todir="${project.basedir}/../libs/">-->
+            <!--<fileset dir="${project.build.directory}">-->
+            <!--<include name="*.jar"/>-->
+            <!--</fileset>-->
+            <!--</copy>-->
+            <!--</tasks>-->
+            <!--</configuration>-->
+            <!--<goals>-->
+            <!--<goal>run</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
             <!--</plugin>-->
 
         </plugins>

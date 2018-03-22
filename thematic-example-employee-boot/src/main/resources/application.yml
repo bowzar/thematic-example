@@ -1,6 +1,7 @@
 spring:
     application:
         name: thematic-example-employee-boot
+        version: 1.0.9-SNAPSHOT
 
 thematic:
     datasource:
