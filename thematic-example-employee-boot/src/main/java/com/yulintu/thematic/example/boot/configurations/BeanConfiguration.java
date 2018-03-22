@@ -19,7 +19,6 @@ public class BeanConfiguration extends SpringConfiguration {
     @Bean
     @Scope("prototype")
     public Provider provider() {
-
         HibernateConnectionStringBuilder builder = new HibernateConnectionStringBuilder();
         builder.setConfigureFilePath(dsConfigName);
         return new ProviderHibernateImpl(builder.getConnectionString());

@@ -2,6 +2,7 @@ package com.yulintu.thematic.example.employee;
 
 import com.yulintu.thematic.data.Trackable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,14 @@ public class EmployeeController {
 
     @Autowired
     private ServiceEmployee service;
+
+    @Value("${spring.application.version}")
+    private String version;
+
+    @GetMapping("/ver")
+    public String ver() {
+        return version;
+    }
 
     @GetMapping("/echo/{val}")
     public String echo(@PathVariable String val) {

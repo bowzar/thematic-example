@@ -1,13 +1,5 @@
 spring:
     application:
         name: thematic-example-employee-boot
-        version: 1.0.9-SNAPSHOT
+        version: 1.1.2-SNAPSHOT
 
-thematic:
-    datasource:
-        name: hibernate.oracle.cfg.xml
-
-logging:
-    level:
-        root: INFO
-        com.yulintu.thematic.data.ContainerAdvicesTracker: INFO

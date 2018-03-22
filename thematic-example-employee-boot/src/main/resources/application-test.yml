@@ -1,0 +1,8 @@
+thematic:
+    datasource:
+        name: hibernate.postgresql.cfg.xml
+
+logging:
+    level:
+        root: WARN
+        com.yulintu.thematic.data.ContainerAdvicesTracker: WARN

@@ -1,0 +1,8 @@
+thematic:
+    datasource:
+        name: hibernate.oracle.cfg.xml
+
+logging:
+    level:
+        root: ERROR
+        com.yulintu.thematic.data.ContainerAdvicesTracker: ERROR

@@ -1,0 +1,8 @@
+thematic:
+    datasource:
+        name: hibernate.sqlserver.cfg.xml
+
+logging:
+    level:
+        root: INFO
+        com.yulintu.thematic.data.ContainerAdvicesTracker: INFO
