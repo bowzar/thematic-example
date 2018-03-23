@@ -76,7 +76,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.3.14.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.27" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-annotations-api:8.5.27" level="project" />
-    <orderEntry type="library" name="Maven: com.yulintu:thematic-example-employee:1.1.4-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="thematic-example-employee" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:1.8.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:1.2.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.13.10.RELEASE" level="project" />
