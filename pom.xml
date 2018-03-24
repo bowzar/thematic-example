@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <thematic.version>1.0.7-RELEASE</thematic.version>
     </properties>
 
     <repositories>
@@ -43,6 +44,33 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.yulintu</groupId>
+            <artifactId>thematic-core</artifactId>
+            <version>${thematic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yulintu</groupId>
+            <artifactId>thematic-data</artifactId>
+            <version>${thematic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yulintu</groupId>
+            <artifactId>thematic-data-hibernate</artifactId>
+            <version>${thematic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yulintu</groupId>
+            <artifactId>thematic-data-redis</artifactId>
+            <version>${thematic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yulintu</groupId>
+            <artifactId>thematic-web</artifactId>
+            <version>${thematic.version}</version>
+        </dependency>
+
 
     </dependencies>
 

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
-@ImportResource("spring.application.xml")
+@ImportResource("classpath:spring.application.xml")
 public class BeanConfiguration extends SpringConfiguration {
 
     public BeanConfiguration() {
