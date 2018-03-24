@@ -12,7 +12,7 @@
     <artifactId>thematic-example-employee</artifactId>
 
     <properties>
-        <thematic.version>1.0.5-RELEASE</thematic.version>
+        <thematic.version>1.0.6-RELEASE</thematic.version>
     </properties>
 
     <dependencies>

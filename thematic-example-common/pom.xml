@@ -16,7 +16,7 @@
         <dependency>
             <groupId>com.yulintu</groupId>
             <artifactId>thematic-core</artifactId>
-            <version>1.0.4-RELEASE</version>
+            <version>1.0.6-RELEASE</version>
         </dependency>
 
     </dependencies>
