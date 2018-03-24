@@ -21,7 +21,7 @@ public class EmployeeController {
 
     @GetMapping("/ver")
     public String ver() {
-        return version;
+        return version+  " from HIDE";
     }
 
     @GetMapping("/echo/{val}")
