@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <thematic.version>1.0.7-RELEASE</thematic.version>
+        <thematic.version>1.1.0-RELEASE</thematic.version>
     </properties>
 
     <repositories>

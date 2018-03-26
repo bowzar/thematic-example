@@ -35,7 +35,7 @@
     </parent>
 
     <properties>
-        <thematic.version>1.0.7-RELEASE</thematic.version>
+        <thematic.version>1.1.0-RELEASE</thematic.version>
         <docker.hosted>192.168.20.10:8082</docker.hosted>
         <docker.remote>http://192.168.20.10:2375</docker.remote>
     </properties>

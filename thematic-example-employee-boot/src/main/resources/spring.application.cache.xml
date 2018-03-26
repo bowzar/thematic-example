@@ -47,8 +47,8 @@
         </constructor-arg>
         <property name="expires">
             <map>
-                <entry key="default" value="300"/>
-                <entry key="employee" value="300"/>
+                <entry key="default" value="30"/>
+                <entry key="employee" value="30"/>
             </map>
         </property>
     </bean>
