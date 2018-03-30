@@ -1,8 +1,10 @@
 package com.yulintu.thematic.example.employee;
 
-import com.yulintu.thematic.web.ApiExceptionCode;
 
-@ApiExceptionCode(value = 4343, status = 502)
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(value = HttpStatus.BAD_GATEWAY, reason = "这是一个测试异常")
 public class EmployeeTestException extends RuntimeException {
     public EmployeeTestException() {
     }

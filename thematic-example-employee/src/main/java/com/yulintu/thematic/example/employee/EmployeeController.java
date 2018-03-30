@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,8 +36,10 @@ public class EmployeeController {
 
     @ApiOperation(value = "Clear all cache", notes = "")
     @GetMapping("/clear")
+    @ResponseStatus(HttpStatus.CONFLICT)
     public int clear() {
-        return service.clear();
+        throw new RuntimeException("clear cache error");
+//        return service.clear();
     }
 
     @ApiOperation(value = "Get all User", notes = "")

@@ -4,8 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>com.yulintu</groupId>
-    <artifactId>thematic-example-employee-boot</artifactId>
+    <artifactId>thematic-example-employee-web</artifactId>
     <version>1.2.7-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -38,88 +39,27 @@
         <thematic.version>1.1.5.1-RELEASE</thematic.version>
         <docker.hosted>192.168.20.10:8082</docker.hosted>
         <docker.remote>http://192.168.20.10:2375</docker.remote>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>
     </properties>
 
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.yulintu</groupId>
-            <artifactId>thematic-core</artifactId>
-            <version>${thematic.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yulintu</groupId>
-            <artifactId>thematic-data</artifactId>
-            <version>${thematic.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yulintu</groupId>
-            <artifactId>thematic-data-hibernate</artifactId>
-            <version>${thematic.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yulintu</groupId>
-            <artifactId>thematic-data-redis</artifactId>
-            <version>${thematic.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yulintu</groupId>
-            <artifactId>thematic-web</artifactId>
-            <version>${thematic.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yulintu</groupId>
-            <artifactId>thematic-example-employee</artifactId>
-            <version>1.1.2-RELEASE</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-rest</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.7</version>
-        </dependency>
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.9.9</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
     </dependencies>
@@ -189,14 +129,14 @@
                         </configuration>
                     </execution>
                     <!--<execution>-->
-                        <!--<id>push-image</id>-->
-                        <!--<phase>install</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>push</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<imageName>${docker.hosted}/${project.name}:${project.version}</imageName>-->
-                        <!--</configuration>-->
+                    <!--<id>push-image</id>-->
+                    <!--<phase>install</phase>-->
+                    <!--<goals>-->
+                    <!--<goal>push</goal>-->
+                    <!--</goals>-->
+                    <!--<configuration>-->
+                    <!--<imageName>${docker.hosted}/${project.name}:${project.version}</imageName>-->
+                    <!--</configuration>-->
                     <!--</execution>-->
                 </executions>
             </plugin>
@@ -239,8 +179,6 @@
             <!--</execution>-->
             <!--</executions>-->
             <!--</plugin>-->
-
-
 
 
         </plugins>

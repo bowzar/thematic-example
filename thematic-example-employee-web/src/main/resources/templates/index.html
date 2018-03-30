@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<h1 th:text="'Hello, ' + ${name} + '!'"/>
+<button id="btnRequest">Request</button>
+<input id="message" type="text">
+<textarea id="result"></textarea>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>
