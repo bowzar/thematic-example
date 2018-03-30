@@ -1,6 +1,6 @@
 thematic:
     datasource:
-        name: hibernate.sqlserver.cfg.xml
+        name: hibernate.postgresql.cfg.xml
 
 logging:
     level:

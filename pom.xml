@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <thematic.version>1.1.0-RELEASE</thematic.version>
+        <thematic.version>1.1.1-RELEASE</thematic.version>
     </properties>
 
     <repositories>
@@ -48,6 +48,11 @@
         <dependency>
             <groupId>com.yulintu</groupId>
             <artifactId>thematic-core</artifactId>
+            <version>${thematic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yulintu</groupId>
+            <artifactId>thematic-spatial</artifactId>
             <version>${thematic.version}</version>
         </dependency>
         <dependency>

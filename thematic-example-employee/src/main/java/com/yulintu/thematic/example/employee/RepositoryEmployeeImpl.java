@@ -31,8 +31,46 @@ public class RepositoryEmployeeImpl extends RepositoryHibernateImpl implements R
                         .createQuery("from User")
                         .list());
 
-
-        User user = new User();
         return (List<User>) val;
+    }
+
+    @Override
+    public int add(User user) {
+
+        Object val = getHibernateProvider()
+                .execute(session -> {
+
+                    session.save(user);
+                    session.flush();
+                    session.clear();
+
+                    return 1;
+                });
+
+        return (int) val;
+    }
+
+    @Override
+    public int update(String name, User user) {
+
+        Object val = getHibernateProvider()
+                .execute(session -> session.createQuery("update User user set user.properties = :p, user.createTime = :t where user.name = :name ")
+                        .setParameter("name", user.getName())
+                        .setParameter("p", user.getProperties())
+                        .setParameter("t", user.getCreateTime())
+                        .executeUpdate());
+
+        return (int) val;
+    }
+
+    @Override
+    public int delete(String name) {
+
+        Object val = getHibernateProvider()
+                .execute(session -> session.createQuery("delete from User user where user.name = :name")
+                        .setParameter("name", name)
+                        .executeUpdate());
+
+        return (int) val;
     }
 }

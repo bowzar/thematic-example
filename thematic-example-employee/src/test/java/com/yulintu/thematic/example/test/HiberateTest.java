@@ -85,6 +85,8 @@ public class HiberateTest {
     @Test
     public void testAdd() {
 
+
+
         executeInTransaction(session -> {
 
             for (int i = 0; i < 1000; i++) {

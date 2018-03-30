@@ -9,4 +9,10 @@ public interface RepositoryEmployee extends Repository {
     String echo(String val);
 
     List<User> all();
+
+    int add(User user);
+
+    int update(String name, User user);
+
+    int delete(String name);
 }

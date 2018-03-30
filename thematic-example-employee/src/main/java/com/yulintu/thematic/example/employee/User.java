@@ -1,8 +1,10 @@
 package com.yulintu.thematic.example.employee;
 
+import com.esri.core.geometry.Geometry;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

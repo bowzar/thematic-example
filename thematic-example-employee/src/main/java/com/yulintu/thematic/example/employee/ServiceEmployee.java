@@ -13,4 +13,10 @@ public interface ServiceEmployee extends Service {
     int clear();
 
     int clearAll();
+
+    int add(User user);
+
+    int update(String name, User user);
+
+    int delete(String name);
 }

@@ -37,4 +37,19 @@ public class ServiceEmployeeImpl extends ServiceImpl implements ServiceEmployee 
     public int clearAll() {
         return 1;
     }
+
+    @Override
+    public int add(User user) {
+        return repository().add(user);
+    }
+
+    @Override
+    public int update(String name, User user) {
+        return repository().update(name, user);
+    }
+
+    @Override
+    public int delete(String name) {
+        return repository().delete(name);
+    }
 }
