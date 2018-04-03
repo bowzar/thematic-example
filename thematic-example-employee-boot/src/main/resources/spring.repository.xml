@@ -7,8 +7,8 @@
                            http://www.springframework.org/schema/aop
                            http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean class="com.yulintu.thematic.data.RepositoryAdvicesConnection"></bean>
-    <bean class="com.yulintu.thematic.data.RepositoryAdvicesTransaction"></bean>
+    <bean class="com.yulintu.thematic.data.RepositoryAdvicesConnection"/>
+    <bean class="com.yulintu.thematic.data.RepositoryAdvicesTransaction"/>
     <aop:aspectj-autoproxy/>
 
 </beans>

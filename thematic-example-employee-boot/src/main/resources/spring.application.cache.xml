@@ -19,12 +19,12 @@
 
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
           destroy-method="destroy">
-        <property name="poolConfig" ref="jedisPoolConfig"></property>
-        <property name="hostName" value="192.168.20.10"></property>
-        <property name="port" value="6379"></property>
-        <property name="password" value="123456"></property>
-        <property name="timeout" value="60000"></property>
-        <property name="usePool" value="true"></property>
+        <property name="poolConfig" ref="jedisPoolConfig"/>
+        <property name="hostName" value="192.168.20.10"/>
+        <property name="port" value="6379"/>
+        <property name="password" value="123456"/>
+        <property name="timeout" value="60000"/>
+        <property name="usePool" value="true"/>
     </bean>
 
     <bean id="jedisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
