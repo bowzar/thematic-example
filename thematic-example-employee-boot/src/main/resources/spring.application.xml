@@ -12,7 +12,7 @@
 
     <aop:aspectj-autoproxy/>
 
-    <bean class="com.yulintu.thematic.web.ApiExceptionAdvices"/>
+    <bean class="com.yulintu.thematic.web.ApiExceptionAdvice"/>
     <bean class="com.yulintu.thematic.data.ContainerAdvicesTracker"/>
     <bean class="com.yulintu.thematic.data.ServiceAdvicesDbSource"/>
 
