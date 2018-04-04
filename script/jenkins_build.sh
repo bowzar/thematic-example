@@ -24,7 +24,7 @@ docker -H 192.168.20.10 ps -a | grep "thematic-example-employee-web" | awk "{pri
 docker -H 192.168.20.10 run --name thematic-example-employee-web -d -p 6031:8081  192.168.20.10:8082/thematic-example-employee-web
 
 docker -H 192.168.20.10 images | grep "hours ago" | grep "thematic-example-employee-web" | awk "{print \$3}" | xargs --no-run-if-empty docker -H 192.168.20.10 rmi
-docker -H 192.168.20.10 images | grep "days ago" | grep "thematic-example-employee-boot" | awk "{print \$3}" | xargs --no-run-if-empty docker -H 192.168.20.10 rmi
+docker -H 192.168.20.10 images | grep "days ago" | grep "thematic-example-employee-web" | awk "{print \$3}" | xargs --no-run-if-empty docker -H 192.168.20.10 rmi
 docker -H 192.168.20.10 images | grep "weeks ago" | grep "thematic-example-employee-web" | awk "{print \$3}" | xargs --no-run-if-empty docker -H 192.168.20.10 rmi
 docker -H 192.168.20.10 images | grep "months ago" | grep "thematic-example-employee-web" | awk "{print \$3}" | xargs --no-run-if-empty docker -H 192.168.20.10 rmi
 docker -H 192.168.20.10 images | grep "years ago" | grep "thematic-example-employee-web" | awk "{print \$3}" | xargs --no-run-if-empty docker -H 192.168.20.10 rmi
