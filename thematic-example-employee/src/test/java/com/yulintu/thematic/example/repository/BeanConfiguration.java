@@ -3,7 +3,7 @@ package com.yulintu.thematic.example.repository;
 
 import com.yulintu.thematic.data.Provider;
 import com.yulintu.thematic.data.hibernate.HibernateConnectionStringBuilder;
-import com.yulintu.thematic.data.hibernate.ProviderHibernateImpl;
+import com.yulintu.thematic.data.hibernate.ProviderPersistenceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,7 @@ public class BeanConfiguration {
         HibernateConnectionStringBuilder builder = new HibernateConnectionStringBuilder();
         builder.setConfigureFilePath(dsConfigName);
 
-        return new ProviderHibernateImpl(builder.getConnectionString());
+        return new ProviderPersistenceImpl(builder.getConnectionString());
     }
 
     @Bean
@@ -34,7 +34,7 @@ public class BeanConfiguration {
         HibernateConnectionStringBuilder builder = new HibernateConnectionStringBuilder();
         builder.setConfigureFilePath("hibernate.sqlserver.cfg.xml");
 
-        return new ProviderHibernateImpl(builder.getConnectionString());
+        return new ProviderPersistenceImpl(builder.getConnectionString());
     }
 
     @Bean
@@ -44,7 +44,7 @@ public class BeanConfiguration {
         HibernateConnectionStringBuilder builder = new HibernateConnectionStringBuilder();
         builder.setConfigureFilePath("hibernate.oracle.cfg.xml");
 
-        return new ProviderHibernateImpl(builder.getConnectionString());
+        return new ProviderPersistenceImpl(builder.getConnectionString());
     }
 
     @Bean
@@ -54,6 +54,6 @@ public class BeanConfiguration {
         HibernateConnectionStringBuilder builder = new HibernateConnectionStringBuilder();
         builder.setConfigureFilePath("hibernate.postgresql.cfg.xml");
 
-        return new ProviderHibernateImpl(builder.getConnectionString());
+        return new ProviderPersistenceImpl(builder.getConnectionString());
     }
 }

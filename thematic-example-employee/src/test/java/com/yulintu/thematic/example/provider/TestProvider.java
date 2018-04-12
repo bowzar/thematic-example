@@ -1,7 +1,8 @@
 package com.yulintu.thematic.example.provider;
 
-import com.yulintu.thematic.data.hibernate.ProviderHibernate;
+import com.yulintu.thematic.data.hibernate.ProviderPersistence;
 import com.yulintu.thematic.example.test.User;
+import org.hibernate.Session;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,34 +17,32 @@ import java.util.List;
 public class TestProvider {
 
     @Autowired
-    private ProviderHibernate provider;
+    private ProviderPersistence provider;
 
-    private static final ThreadLocal<ProviderHibernate> tl = new ThreadLocal<>();
+    private static final ThreadLocal<ProviderPersistence> tl = new ThreadLocal<>();
 
     @Test
     public void testCommonQuery() {
 
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(BeanConfiguration.class);
-        ProviderHibernate provider = ac.getBean(ProviderHibernate.class);
-        ProviderHibernate provider1 = ac.getBean(ProviderHibernate.class);
-        ProviderHibernate provider2 = ac.getBean(ProviderHibernate.class);
+        ProviderPersistence provider = ac.getBean(ProviderPersistence.class);
+        ProviderPersistence provider1 = ac.getBean(ProviderPersistence.class);
+        ProviderPersistence provider2 = ac.getBean(ProviderPersistence.class);
 
         provider = tl.get();
         if (provider == null) {
-            tl.set(provider = ac.getBean(ProviderHibernate.class));
+            tl.set(provider = ac.getBean(ProviderPersistence.class));
         }
 
         provider = tl.get();
 
         provider.openConnection();
 
-        List list0 = provider.query(session -> {
-            return session.createSQLQuery("select * from SecurityObject")
+        List list0 = provider.getCurrentSession().createSQLQuery("select * from SecurityObject")
                     .addEntity("SecurityObject", User.class)
                     .setFirstResult(1)
                     .setMaxResults(3)
                     .list();
-        });
 
         List<User> list1 = list0;
 
@@ -53,18 +52,19 @@ public class TestProvider {
     @Test
     public void testQueryNew() {
 
-        Object obj = provider.executeInSession(session -> session
+        Object obj = provider.getCurrentSession()
                 .createSQLQuery("select * from SecurityObject")
                 .addEntity("SecurityObject", User.class)
                 .setFirstResult(1)
                 .setMaxResults(3)
-                .list());
+                .list();
     }
 
     @Test
     public void testAddNew() {
 
-        Object obj = provider.executeInTransaction(session -> {
+        Session session = provider.getCurrentSession();
+
 
             for (int i = 0; i < 1000; i++) {
 
@@ -78,20 +78,17 @@ public class TestProvider {
                 }
             }
 
-            return 1000;
-        });
-
-        System.out.println(obj);
+        System.out.println(1000);
     }
 
 
     @Test
     public void testDeleteNew() {
 
-        Object obj = provider.executeInTransaction(session -> session
+        Object obj = provider.getCurrentSession()
                 .createQuery("delete from User user where user.name = :name ")
                 .setParameter("name", "HIDE")
-                .executeUpdate());
+                .executeUpdate();
 
         System.out.println(obj);
     }
@@ -99,11 +96,11 @@ public class TestProvider {
     @Test
     public void testUpdateInTransaction() {
 
-        Object obj = provider.executeInTransaction(session -> session
+        Object obj = provider.getCurrentSession()
                 .createQuery("update  User user set user.properties = :p where user.name = :name ")
                 .setParameter("name", "HIDE")
                 .setParameter("p", "hahahah")
-                .executeUpdate());
+                .executeUpdate();
 
         System.out.println(obj);
     }
@@ -111,10 +108,10 @@ public class TestProvider {
     @Test
     public void tesCountInTransaction() {
 
-        Object obj = provider.executeInSession(session -> session
+        Object obj = provider.getCurrentSession()
                 .createQuery("select count(0) from User where name <> :name")
                 .setParameter("name", "HIDE")
-                .uniqueResult());
+                .uniqueResult();
 
         System.out.println(obj);
     }
