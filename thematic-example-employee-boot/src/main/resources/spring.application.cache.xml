@@ -27,29 +27,29 @@
         <property name="usePool" value="true"/>
     </bean>
 
-    <bean id="jedisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
-        <property name="connectionFactory" ref="jedisConnectionFactory"/>
-        <property name="keySerializer">
-            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
-        </property>
-        <property name="valueSerializer">
-            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
-        </property>
-    </bean>
+    <!--<bean id="jedisTemplate" class="org.springframework.data.redis.core.RedisTemplate">-->
+        <!--<property name="connectionFactory" ref="jedisConnectionFactory"/>-->
+        <!--<property name="keySerializer">-->
+            <!--<bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>-->
+        <!--</property>-->
+        <!--<property name="valueSerializer">-->
+            <!--<bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>-->
+        <!--</property>-->
+    <!--</bean>-->
 
-    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
-        <constructor-arg ref="jedisTemplate"/>
-        <constructor-arg name="cacheNames">
-            <set>
-                <value>default</value>
-                <value>employee</value>
-            </set>
-        </constructor-arg>
-        <property name="expires">
-            <map>
-                <entry key="default" value="30"/>
-                <entry key="employee" value="30"/>
-            </map>
-        </property>
-    </bean>
+    <!--<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">-->
+        <!--<constructor-arg ref="jedisTemplate"/>-->
+        <!--<constructor-arg name="cacheNames">-->
+            <!--<set>-->
+                <!--<value>default</value>-->
+                <!--<value>employee</value>-->
+            <!--</set>-->
+        <!--</constructor-arg>-->
+        <!--<property name="expires">-->
+            <!--<map>-->
+                <!--<entry key="default" value="30"/>-->
+                <!--<entry key="employee" value="30"/>-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>
